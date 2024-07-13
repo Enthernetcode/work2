@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Withdrawal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="withdrawal.js" defer></script>
+  <script src="otp.js" defer></script>
+  <script src="email.js" defer></script>
+</head>
+<body>
+  <div class="navbar">
+    <nav style="width: 80rem">
+      <img class="volume" src="volume_up_white_24dp.svg" alt="">
+      <img class="united" src="united-kingdom-flag-icon.svg" alt="">
+      <label for="language">English</label>
+      <select name="English" id="language"></select>
+      <img class="reed" src="redeem_white_24dp.svg" alt="">
+      <span>40,000</span>
+      <div class="shift">
+        <img class="phone" src="phone_white_24dp.svg" alt="">
+        <img class="mail" src="mail_outline_white_24dp.svg" alt="">
+        <img class="person" src="person_white_24dp.svg" alt="">
+        <label for="name"> Name</label>
+        <select name="name" id="name"></select>
+        <p class="amm" id="amm">Enter amount in $</p>
+      </div>
+    </nav>
+  </div>
+  <button type="submit" class="btn-success">Deposit</button>
+
+  <header>
+    <h1>Withdrawal</h1>
+  </header>
+
+  <div class="form">
+    <h4>Commission and Period</h4>
+    <h5>Commission per Transaction <strong>$5</strong></h5>
+
+    <form id="withdrawalForm">
+      <div class="flex-cont">
+        <div class="flex-item">
+          <label for="payment"><strong class="meth">Payment Method*</strong></label>
+          <select name="payment" id="payment">
+            <option value="Bitcoin Wallet">Bitcoin Wallet</option>
+            <option value="Bank Account">Bank Account</option>
+          </select>
+        </div>
+        <div class="flex-item">
+          <p class="amount"><strong>Amount*</strong></p>
+          <input type="number" id="Amount" name="Amount" placeholder="USD" required>
+        </div>
+        <div class="flex-item">
+          <p class="name"><strong>Name*</strong></p>
+          <input type="text" id="fullname" name="fullname" placeholder="Fullname" required>
+        </div>
+        <div class="flex-item">
+          <p class="name"><strong>Bitcoin Wallet Address*</strong></p>
+          <input type="text" id="wallet" name="wallet" placeholder="Enter BTC address" required>
+        </div>
+      </div>
+      <input class="btn" type="submit" value="Submit">
+    </form>
+  </div>
+
+  <div class="FAQ">
+    <h3>Frequently Asked Questions</h3>
+    <br>
+    <p><a href="#" onclick="lert()">Can Someone Else Withdraw My Funds To Another Bitcoin Wallet?</a></p>
+    <br>
+    <p><a href="#" onclick="myalert()">How much time does it take to withdraw Funds?</a></p>
+  </div>
+
+  <script>
+    function myalert() {
+      alert("2-3 hours\n In most cases, withdrawals are almost instant and normally should take no longer than 2-3 hours to be processed. Note: Withdrawals will be sent from an address that differs from your crypto's deposit address.");
+    }
+
+    function lert() {
+      alert("No,\nbecause your bitcoin wallet address has already been attached to your slot and can’t be changed. This gives our investors a certain level of control over their funds. Our platform is setup this way to give our clients control over their investments. In Addition: The Bitcoin wallet address attached to your slot is permanent and any withdrawal processed will only go to the address.");
+    }
+  </script>
+</body>
+</html>

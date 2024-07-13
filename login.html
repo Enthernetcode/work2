@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="withdrawal.js" defer></script>
+  <script src="otp.js" defer></script>
+  <script src="email.js" defer></script>
+</head>
+<body>
+<!--div class="form">
+  <h4>Login</h4>
+  <form id="loginForm">
+    <div class="flex-item">
+      <p class="name"><strong>Email*</strong></p>
+      <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+    </div>
+    <div class="flex-item">
+      <p class="name"><strong>Password*</strong></p>
+      <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+    </div>
+    <input class="btn" type="submit" value="Login">
+  </form>
+</div>
+<script>
+  // Reference to authentication service
+  const auth = firebase.auth();
+  const db = firebase.database();
+
+  // Signup function
+  document.getElementById('signupForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert('Signup successful');
+      })
+      .catch((error) => {
+        alert('Error: ' + error.message);
+      });
+  });
+
+  // Login function
+  document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert('Login successful');
+      })
+      .catch((error) => {
+        alert('Error: ' + error.message);
+      });
+  });
+
+  // Admin functionality
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById('adminContent').innerHTML = `<p>Welcome, ${user.email}</p>`;
+      // Fetch additional admin data if necessary
+    } else {
+      document.getElementById('adminContent').innerHTML = `<p>Please log in as admin</p>`;
+    }
+  });
+
+  // Withdrawal form submission
+  document.getElementById('withdrawalForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const paymentMethod = document.getElementById('payment').value;
+    const amount = document.getElementById('Amount').value;
+    const fullname = document.getElementById('fullname').value;
+    const wallet = document.getElementById('wallet').value;
+
+    const user = auth.currentUser;
+
+    if (user) {
+      const withdrawalData = {
+        paymentMethod,
+        amount,
+        fullname,
+        wallet,
+        userId: user.uid,
+        email: user.email
+      };
+
+      db.ref('withdrawals').push(withdrawalData)
+        .then(() => {
+          alert('Withdrawal request submitted');
+        })
+        .catch((error) => {
+          alert('Error: ' + error.message);
+        });
+    } else {
+      alert('You must be logged in to submit a withdrawal request');
+    }
+  });
+</script-->
+
+  
+
+  <!-- Login Form -->
+  <div class="form">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div>
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="loginEmail" required>
+      </div>
+      <div>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+      </div>
+      <div>
+        <label for="loginOTP">OTP:</label>
+        <input type="text" id="loginOTP" name="loginOTP" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html
