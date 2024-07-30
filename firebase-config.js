@@ -1,6 +1,12 @@
 // firebase-config.js
 
-// Your Firebase configuration
+// Import Firebase modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+
+// Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDI8rU3MKf-76fcLj4-mdJnBoA_HFaDj2A",
   authDomain: "work-77c5d.firebaseapp.com",
@@ -13,7 +19,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 
 // Export Firebase services
 const auth = firebase.auth();

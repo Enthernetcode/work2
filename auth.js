@@ -1,6 +1,8 @@
-// Import necessary Firebase services and initialize Firebase app
+// auth.js
+
 import { auth, db } from './firebase-config.js'; // Assuming you have exported auth and db from firebase-config.js
-import { sendEmail } from './email.js'; // Import the sendEmail function from email.js
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js';
+import { ref, set } from 'https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js';
 
 // Function to sign up a new user with email and password
 function signUpWithEmailAndPassword(email, password) {
@@ -136,6 +138,11 @@ function handleSignOut() {
       // Optionally, display error message to the user
     });
 }
+
+// Attach functions to the window object to make them accessible globally
+window.handleSignUp = handleSignUp;
+window.handleSignIn = handleSignIn;
+window.handleSignOut = handleSignOut;
 
 export {
   signUpWithEmailAndPassword,
